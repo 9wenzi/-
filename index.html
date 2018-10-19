@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="picture.css">
+</head>
+<body>
+	<button id="imgFile" style="width: 100px">上传</button>
+	<img id="previewImg" src="">
+	<br>
+	<button id="imgFile2" style="width: 150px">上传</button>
+
+	<img id="previewImg2" src="">
+
+	<script src="./vconsole.min.js"></script>
+	<script src="./hammer.min.js"></script>
+	<script src="./exif.js"></script>
+	<script src="./picture.1.0.0.js"></script>
+	<script>
+		var vConsole = new VConsole();
+		var imgFile = document.getElementById("imgFile");
+		var imgFile2 = document.getElementById("imgFile2");
+		var previewImg =document.getElementById("previewImg");
+		var previewImg2 =document.getElementById("previewImg2");
+
+		var edit = new ImgEdit({
+			id: imgFile,
+			size: [375, 300],
+			onConfirm: function(imgdata) {
+				previewImg.src = imgdata;
+			}
+		});
+
+		var edit2 = new ImgEdit({
+			id: imgFile2,
+			size: [250, 250],
+			onConfirm: function(imgdata) {
+				previewImg2.src = imgdata;
+			}
+		});
+
+	</script>
+</body>
+</html>
